@@ -11,18 +11,18 @@ class ArticleController extends Controller
         return 'index article';
     }
 
-    public function category()
+    public function category($category)
     {
-        return 'category article';
+        return 'category article' . $category;
     }
 
-    public function show()
+    public function show($category, $article)
     {
-        return 'show article';
+        return 'show article' . $category . ' ' . $article;
     }
 
-    public function tag()
+    public function tag($tag)
     {
-        return 'tag article';
+        return 'tag article' . $tag;
     }
 }
