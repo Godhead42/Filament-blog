@@ -16,6 +16,8 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
+use Carbon\Carbon;
+
 
 class ArticleResource extends Resource
 {
@@ -58,7 +60,7 @@ class ArticleResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\TagsInput::make('tags')->label('Тэги'),
 
-                Forms\Components\TextInput::make('category_id')->label('Категория')
+                Forms\Components\Select::make('category_id')->label('Категория')
                     ->options(static::categoryOptions())
                     ->required(),
                 Forms\Components\DateTimePicker::make('published_at')->label('Дата публикации')
