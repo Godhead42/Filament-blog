@@ -10,7 +10,7 @@
     <!-- END sidebar-box -->
     <div class="sidebar-box">
         <div class="bio text-center">
-            <img src="images/person_2.jpg" alt="Image Placeholder" class="img-fluid">
+            <img src="{{asset('assets/images/person_2.jpg')}}" alt="Image Placeholder" class="img-fluid">
             <div class="bio-body">
                 <h2>Craig David</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
@@ -48,32 +48,23 @@
     <!-- END sidebar-box -->
 
     <div class="sidebar-box">
-        <h3 class="heading">Categories</h3>
+        <h3 class="heading">Категории</h3>
         <ul class="categories">
-            <li><a href="#">Food <span>(12)</span></a></li>
-            <li><a href="#">Travel <span>(22)</span></a></li>
-            <li><a href="#">Lifestyle <span>(37)</span></a></li>
-            <li><a href="#">Business <span>(42)</span></a></li>
-            <li><a href="#">Adventure <span>(14)</span></a></li>
+            @foreach($categories as $category)
+                <li><a href="{{route('article.category', [$category->slug])}}">{{$category->title}} <span>({{$category->articles_count}})</span></a></li>
+            @endforeach
+
         </ul>
     </div>
     <!-- END sidebar-box -->
 
     <div class="sidebar-box">
-        <h3 class="heading">Tags</h3>
+        <h3 class="heading">Тэги</h3>
         <ul class="tags">
-            <li><a href="#">Travel</a></li>
-            <li><a href="#">Adventure</a></li>
-            <li><a href="#">Food</a></li>
-            <li><a href="#">Lifestyle</a></li>
-            <li><a href="#">Business</a></li>
-            <li><a href="#">Freelancing</a></li>
-            <li><a href="#">Travel</a></li>
-            <li><a href="#">Adventure</a></li>
-            <li><a href="#">Food</a></li>
-            <li><a href="#">Lifestyle</a></li>
-            <li><a href="#">Business</a></li>
-            <li><a href="#">Freelancing</a></li>
+            @foreach($articleTags as $tag)
+                <li><a href="{{route('article.tag', $tag)}}">{{$tag}}</a></li>
+            @endforeach
+
         </ul>
     </div>
 </div>

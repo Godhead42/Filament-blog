@@ -36,4 +36,10 @@ class Article extends Model
     public function getFormattedPublishedAtAttribute() {
         return Carbon::parse($this->published_at)->translatedFormat('j F Y');
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }

@@ -1,7 +1,22 @@
 @extends('layouts.main')
 
 @section('content')
-    Список статей
+
+    @if(isset($category))
+        <div class="row mb-4">
+            <div class="col-md-5">
+                <h2 class="mb-4">Категории: {{ $category->title }}</h2>
+            </div>
+        </div>
+    @endif
+
+    @if(isset($tag))
+        <div class="row mb-4">
+            <div class="col-md-5">
+                <h2 class="mb-4">Тэги: {{ $tag }}</h2>
+            </div>
+        </div>
+    @endif
 
 
     <div class="row blog-entries">
