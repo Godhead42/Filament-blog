@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Мой блог на Filament</title>
+    <title>{{config('seo.title')}} @if(isset($pageTitle))  | {{$pageTitle}} @endif</title>
+        <meta name="description" content="{{config('seo.description')}} @if(isset($pageTitle))  | {{$pageTitle}} @endif.">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

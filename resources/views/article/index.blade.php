@@ -18,6 +18,19 @@
         </div>
     @endif
 
+    @if(isset($query))
+        <div class="row mb-4">
+            <div class="col-md-5">
+                <h2 class="mb-4">Поиск: {{ $query }}</h2>
+            </div>
+        </div>
+    @endif
+
+    @if(isset($query) and count($articles) == 0)
+        <div class="not-found">
+            По вашему запросу ничего не найдено
+        </div>
+    @endif
 
     <div class="row blog-entries">
         <div class="col-md-12 col-lg-8 main-content">
@@ -26,7 +39,7 @@
                 <div class="col-md-12">
                     @foreach($articles as $article)
                         <div class="post-entry-horzontal">
-                            <a href="{{route('article.show', [$article->category->slug, $article->slug])}}">
+                            <a href="{{ route('article.show', ['locale' => app()->getLocale(), $article->category->slug, $article->slug]) }}">
                                 <div class="image element-animate" data-animate-effect="fadeIn"
                                      style="background-image: url(/uploads/{{$article->preview_image}});"></div>
                                 <span class="text">

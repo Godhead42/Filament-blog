@@ -7,6 +7,8 @@ use App\Models\ArticleCategory;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Carbon::setLocale('ru');
+
 
         View::composer('*', function ($view) {
             $categories = ArticleCategory::where('active', true)->get();

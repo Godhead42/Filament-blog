@@ -2,22 +2,22 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-4">
-                <h3>О блоге</h3>
+                <h3>{{ __('footer.about_blog') }}</h3>
                 <p class="mb-4">
                     <img src="assets/images/img_1.jpg" alt="Image placeholder" class="img-fluid">
                 </p>
 
-                <p>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore reiciendis. <a href="#">Подробнее</a></p>
+                <p>{{ __('footer.description') }} <a href="#">{{ __('footer.read_more') }}</a></p>
             </div>
             <div class="col-md-6 ml-auto">
                 <div class="row">
                     <div class="col-md-7">
-                        <h3>Последние статьи</h3>
+                        <h3>{{ __('footer.latest_articles') }}</h3>
                         <div class="post-entry-sidebar">
                             <ul>
                                 @foreach($latestArticles as $article)
                                     <li>
-                                        <a href="{{route('article.show', [$article->category->slug, $article->slug])}}">
+                                        <a href="{{ route('article.show', ['locale' => app()->getLocale(), $article->category->slug, $article->slug]) }}">
                                             <img src="/uploads/{{$article->preview_image}}" alt="{{$article->title}}" class="mr-4">
                                             <div class="text">
                                                 <h4>{{$article->title}}</h4>
@@ -36,16 +36,15 @@
                     <div class="col-md-4">
 
                         <div class="mb-5">
-                            <h3>Быстрые ссылки</h3>
+                            <h3>{{ __('footer.quick_links') }}</h3>
                             <ul class="list-unstyled">
-                                <li><a href="{{ route('about') }}">О нас</a></li>
-                                <li><a href="{{ route('article.category', 'test') }}">Разработка сайтов</a></li>
-
+                                <li><a href="{{ route('about', app()->getLocale()) }}">{{ __('footer.about_us') }}</a></li>
+                                <li><a href="{{ route('article.category', [app()->getLocale(), 'test']) }}">{{ __('footer.web_development') }}</a></li>
                             </ul>
                         </div>
 
                         <div class="mb-5">
-                            <h3>Social</h3>
+                            <h3>{{ __('footer.social') }}</h3>
                             <ul class="list-unstyled footer-social">
                                 <li><a href="#"><span class="fa fa-twitter"></span> Twitter</a></li>
                                 <li><a href="#"><span class="fa fa-facebook"></span> Facebook</a></li>

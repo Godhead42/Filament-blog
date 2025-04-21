@@ -1377,3 +1377,10 @@ blockquote {
     line-height: 1.4em;
     color: gray;
 }
+.language-switcher select {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+

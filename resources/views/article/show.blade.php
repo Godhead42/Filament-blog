@@ -9,7 +9,9 @@
                 <span class="mr-2">{{$article->formatted_published_at}}</span> &bullet;
             </div>
             <h1 class="mb-4">{{$article->title}}</h1>
-            <a class="category mb-5" href="{{route('article.show', [$article->category->slug, $article->slug])}}">{{$article->category->title}}</a>
+            <a class="category mb-5" href="{{ route('article.category', ['locale' => app()->getLocale(), $article->category->slug]) }}">
+                {{ $article->category->title }}
+            </a>
 
             <div class="post-content-body">
                 {!! $article->detail_text !!}

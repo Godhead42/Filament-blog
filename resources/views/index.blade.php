@@ -6,22 +6,23 @@
 
             <div class="owl-carousel owl-theme home-slider">
                 @foreach($latestArticles as $article)
-                <div>
-                    <a href="{{route('article.show', [$article->category->slug, $article->slug])}}" class="a-block d-flex align-items-center height-lg"
-                       style="background-image: url('/uploads/{{$article->detail_image}}'); ">
-                        <div class="text half-to-full">
-                            <span class="category mb-5">{{$article->category->title}}</span>
-                            <div class="post-meta">
-                                <span class="mr-2">{{$article->formatted_published_at}}</span>
+                    <div>
+                        <a href="{{ route('article.show', [app()->getLocale(), $article->category->slug, $article->slug]) }}" class="a-block d-flex align-items-center height-lg"
+                           style="background-image: url('/uploads/{{$article->detail_image}}'); ">
+                            <div class="text half-to-full">
+                                <span class="category mb-5">{{$article->category->title}}</span>
+                                <div class="post-meta">
+                                    <span class="mr-2">{{$article->formatted_published_at}}</span>
+                                </div>
+                                <h3>{{$article->title}}</h3>
+                                <p>{!! $article->preview_text !!}</p>
                             </div>
-                            <h3>{{$article->title}}</h3>
-                            <p>{!! $article->preview_text !!}</p>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
                 @endforeach
 
             </div>
+
 
             <div class="row blog-entries">
                 <div class="col-md-12 col-lg-8 main-content">
@@ -29,7 +30,8 @@
 
                         @foreach($articles as $article)
                             <div class="col-md-6">
-                                <a href="{{route('article.show', [$article->category->slug, $article->slug])}}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                                <a href="{{ route('article.show', [app()->getLocale(), $article->category->slug, $article->slug]) }}"
+                                class="blog-entry element-animate" data-animate-effect="fadeIn">
                                     <img src="/uploads/{{$article->preview_image}}" alt="{{$article->title}}">
                                     <div class="blog-content-body">
                                         <div class="post-meta">

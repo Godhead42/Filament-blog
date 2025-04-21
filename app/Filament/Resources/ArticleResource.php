@@ -131,4 +131,6 @@ class ArticleResource extends Resource
     public static function categoryOptions() {
         return ArticleCategory::pluck('title', 'id');
     }
+
+
 }
